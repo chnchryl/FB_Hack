@@ -13,7 +13,7 @@
     </div>
     <!-- Header -->
 			<header id="header" class="alt">
-				<div class="logo"><a href="index.html">Hack <span>a DONKEY</span></a></div>
+				<div class="logo"><a href="Sample.html">Hack <span>a DONKEY</span></a></div>
 			</header>
 
 		<!-- Banner -->
@@ -25,7 +25,7 @@
 					</header>
 						<!--<a href="record.html" class="button big scrolly">Start Recording</a>-->
             <button id="startBtn" class="button big scrolly" disabled="disabled">Start</button>
-            <button id="stopBtn" class="button big scrolly" disabled="disabled">Stop</button>
+            <button onclick="saveTextAsFile()" id="stopBtn" class="button big scrolly" disabled="disabled">Stop</button>
             <input type="file" id="filePicker" accept=".wav" style="display:none"/>
           </br>
             <tr>
@@ -41,7 +41,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <table style="display: none">
+                    <table>
                         <tr>
                             <td>Results:</td>
                             <td>Current hypothesis:</td>
@@ -53,8 +53,8 @@
                             <td style="vertical-align: top">
                                 <span id="hypothesisDiv" style="width:200px;height:200px;display:block;"></span>
                             </td>
-                            <td>Filename to Save As:</td>
-                            <td><input id="inputFileNameToSaveAs"></input></td>
+                            <!-- <td>Filename to Save As:</td> -->
+                            <!-- <td><input id="inputFileNameToSaveAs"></input></td> -->
                             <td><button onclick="saveTextAsFile()">Save Text to File</button></td>
                         </tr>
                     </table>
@@ -69,10 +69,10 @@
 {
 	var textToWrite = document.getElementById("phraseDiv").value;
 	var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
-	var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
+	// var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
 
 	var downloadLink = document.createElement("a");
-	downloadLink.download = fileNameToSaveAs;
+	downloadLink.download = "testFile";
 	downloadLink.innerHTML = "Download File";
 	if (window.webkitURL != null)
 	{
@@ -345,5 +345,14 @@
 
         }
     </script>
+
+    <!--Scripts-->
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="../../../assets/js/jquery.min.js"></script>
+    <script src="../../../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../../../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../../../assets/js/skel.min.js"></script>
+    <script src="../../../assets/js/util.js"></script>
+    <script src="../../../assets/js/main.js"></script>
 </body>
 </html>
