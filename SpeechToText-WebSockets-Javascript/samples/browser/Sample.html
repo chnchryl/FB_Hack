@@ -362,10 +362,19 @@
             stopBtn.disabled = true;
 
 /* Send JSON result to backend */
+            // try {
+            //     var xhr = new(XMLHttpRequest || ActiveXObject)('MSXML2.XMLHTTP.3.0');
+            //     xhr.open('POST', phraseDiv.innerHTML, 1);
+            //     xhr.send();
+            // } catch (e) {
+            //     window.console && console.log(e);
+            //     tokenDeferral.Reject(e.message);
+            // }
             try {
                 var xhr = new(XMLHttpRequest || ActiveXObject)('MSXML2.XMLHTTP.3.0');
                 xhr.open('POST', phraseDiv.innerHTML, 1);
-                xhr.send();
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                xhr.send(phraseDiv.innerHTML);
             } catch (e) {
                 window.console && console.log(e);
                 tokenDeferral.Reject(e.message);
