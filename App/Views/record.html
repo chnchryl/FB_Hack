@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Hack a DONKEY</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+		<input type="file" accept="audio/*" capture id="recorder">
+		<audio id="player" controls></audio>
+		<script>
+		  var recorder = document.getElementById('recorder');
+		  var player = document.getElementById('player');
+
+		  recorder.addEventListener('change', function(e) {
+		    var file = e.target.files[0];
+		    // Do something with the audio file.
+		    player.src =  URL.createObjectURL(file);
+				
+		  });
+		</script>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="index.html">Hack <span>a DONKEY</span></a></div>
+			</header>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<header>
+						<h1>Recording</h1>
+					</header>
+					<a href="record.html" class="button big scrolly">Stop Recording</a>
+
+				</div>
+			</section>
+
+		<!-- Main -->
+			<div id="main">
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
