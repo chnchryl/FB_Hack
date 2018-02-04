@@ -32,16 +32,37 @@
                 <td align="right">Status:</td>
                 <td align="left"><span id="statusDiv"></span></td>
             </tr>
+
 					<!-- <a href="/SpeechToText-WebSockets-Javascript/samples/browser/Sample.html" class="button big scrolly">Start Recording</a> -->
 				</div>
 			</section>
+
+
+      <div id="zzz">
+          <table width="100%" style="color: white; background-color: black">
+              <tr>
+                  <td>
+                      <table>
+                          <tr>
+                              <td><h2 style="color: white">Results:</h2></td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <textarea id="dreamtalks" style="display: inline-block;width:500px;height:200px"></textarea>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+          </table>
+      </div>
 
     <div id="content" style="display:none">
         <table width="100%">
             <tr>
                 <td></td>
                 <td>
-                    <table>
+                    <table style="display:none">
                         <tr>
                             <td>Results:</td>
                             <td>Current hypothesis:</td>
@@ -318,6 +339,10 @@
         function UpdateRecognizedPhrase(json) {
             hypothesisDiv.innerHTML = "";
             phraseDiv.innerHTML += json + "\n";
+            var date = new Date().toLocaleString();
+            if (JSON.parse(json).DisplayText) {
+              dreamtalks.innerHTML +=  date + " " + JSON.parse(json).DisplayText + "\n";
+            }
         }
 
         function OnComplete() {
